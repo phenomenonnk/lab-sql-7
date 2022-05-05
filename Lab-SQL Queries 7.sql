@@ -5,7 +5,7 @@ use sakila;
 -- So we do not want to include this last name in our output. 
 -- Last name "Astaire" is present only one time with actor "Angelina Astaire", hence we would want this in our output list.
 select first_name,last_name,count(last_name) as quantity_of_last_names from sakila.actor
-group by 2 -- 2 instead of last_name
+group by 1, 2 -- 1 instead of first_name, 2 instead of last_name (add in the GROUP BY statement every variable that it not using aggregated functions)
 having quantity_of_last_names=1;
 
 -- 2. 
